@@ -1,0 +1,6 @@
+{
+    "env": {
+        "NASA_KEY": "@nasa-key",
+        "FAUNADB_SECRET_KEY_CURIOSITIES": "@faunadb_secret_key_curiosities"
+    }
+}

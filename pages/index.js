@@ -1,5 +1,12 @@
 import React from 'react';
 
-const Home = () => <div>Curiosities 🤫</div>;
+import Layout from '../components/layout';
+import Welcome from '../components/welcome';
 
-export default Home;
+const Main = () => (
+    <Layout>
+        <Welcome />
+    </Layout>
+);
+
+export default Main;

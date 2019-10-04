@@ -1,11 +1,10 @@
 import Head from 'next/head';
 
-import Nav from './nav';
+import NavBar from './nav/nav-bar';
+import Links from './nav/links';
 import Footer from './footer';
 
 export default function({ children, title = 'Curiosities 🚀' }) {
-    console.log(children);
-
     return (
         <div className="main">
             <Head>
@@ -16,8 +15,10 @@ export default function({ children, title = 'Curiosities 🚀' }) {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <Nav />
-            <div className="content">{children}</div>
+            <div className="content">
+                <NavBar links={Links} />
+                <div>{children}</div>
+            </div>
             <Footer className="footer" />
 
             <style jsx global>{`
@@ -33,12 +34,21 @@ export default function({ children, title = 'Curiosities 🚀' }) {
                     flex-direction: column;
                     height: 100vh;
                     align-items: center;
+                    width: 100%;
                 }
                 .content {
+                    width: 1024px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                     flex: 1 0 auto;
                 }
                 .footer {
                     flex-shrink: 0;
+                }
+                a {
+                    color: inherit;
+                    text-decoration: none;
                 }
             `}</style>
         </div>

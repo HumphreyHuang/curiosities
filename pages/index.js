@@ -43,4 +43,15 @@ Main.getInitialProps = async () => {
     return { apodData };
 };
 
+Main.getInitialProps = async () => {
+    const NASA_KEY = process.env.NASA_KEY;
+
+    const res = await fetch(
+        `https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`
+    );
+    const data = await res.json();
+
+    return { data };
+};
+
 export default Main;

@@ -24,7 +24,7 @@ export default async (req, res) => {
             })
         );
 
-        res.status(200).json({ saved: true });
+        res.status(200).end();
     } catch (e) {
         res.status(500).json({ error: e.message });
     }

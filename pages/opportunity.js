@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Layout from '../components/layout';
+import Layout from '../lib/components/layout';
 
 class Opportunity extends Component {
     static async getInitialProps() {

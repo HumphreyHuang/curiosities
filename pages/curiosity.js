@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-unfetch';
 
-import Layout from '../components/layout';
+import Layout from '../lib/components/layout';
 
 class Curiosity extends Component {
     static async getInitialProps() {

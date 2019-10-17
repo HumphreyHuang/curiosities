@@ -1,7 +1,8 @@
 import fetch from 'isomorphic-unfetch';
 
-import Layout from '../components/layout';
-import Photo from '../components/photo';
+import Layout from '../lib/components/layout';
+import Photo from '../lib/components/photo';
+import { host } from '../lib/services/host';
 
 const Main = ({ apodData }) => {
     return (
@@ -12,11 +13,12 @@ const Main = ({ apodData }) => {
 };
 
 Main.getInitialProps = async () => {
-    const NASA_KEY = process.env.NASA_KEY;
     let apodData = {};
 
+    const NASA_KEY = process.env.NASA_KEY;
+
     try {
-        const resApi = await fetch('http://localhost:3000/api/apod/get-today');
+        const resApi = await fetch(`${host}/api/apod/get-today`);
 
         if (resApi.ok) {
             apodData = await resApi.json();
@@ -27,8 +29,7 @@ Main.getInitialProps = async () => {
             apodData = await resNasa.json();
 
             // Save API data to DB
-            // TODO: Make this dynamic
-            await fetch('http://localhost:3000/api/apod/save-today', {
+            await fetch(`${host}/api/apod/save-today`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

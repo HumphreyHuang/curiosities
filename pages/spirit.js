@@ -1,4 +1,4 @@
-import Layout from '../components/layout';
+import Layout from '../lib/components/layout';
 
 function Spirit() {
     return <Layout>Spirit</Layout>;

@@ -1,7 +1,18 @@
-import Layout from '../components/layout';
+import React, { Component } from 'react';
+import fetch from 'isomorphic-unfetch';
 
-function Curiosity() {
-    return <Layout>Curiosity</Layout>;
+import Layout from '../lib/components/layout';
+
+class Curiosity extends Component {
+    static async getInitialProps() {
+        const res = await fetch('https://api.github.com/repos/zeit/next.js');
+
+        return { res };
+    }
+
+    render() {
+        return <Layout>Curiosity</Layout>;
+    }
 }
 
 export default Curiosity;

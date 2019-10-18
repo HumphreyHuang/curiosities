@@ -1,7 +1,15 @@
-import Layout from '../components/layout';
+import React, { Component } from 'react';
 
-function Opportunity() {
-    return <Layout>Opportunity</Layout>;
+import Layout from '../lib/components/layout';
+
+class Opportunity extends Component {
+    static async getInitialProps() {
+        return {};
+    }
+
+    render() {
+        return <Layout>Opportunity</Layout>;
+    }
 }
 
 export default Opportunity;

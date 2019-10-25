@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 
 import Layout from '../lib/components/layout';
-import ItemContainer from '../lib/components/item/item-container';
+import ItemContainer from '../lib/components/item-container';
 import { host } from '../lib/services/host';
 
 const Main = ({ apodData }) => {

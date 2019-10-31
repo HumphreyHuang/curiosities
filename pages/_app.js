@@ -12,12 +12,17 @@ const theme = {
 const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-style: normal;
+    
     body {
         margin: 0;
     }
     a {
         color: inherit;
         text-decoration: none;
+    }
+
+    button:focus {
+        outline: 0;
     }
 `;
 

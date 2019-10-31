@@ -8,8 +8,10 @@
         "start": "next start"
     },
     "dependencies": {
+        "@zeit/next-css": "^1.0.1",
         "dayjs": "^1.8.16",
         "dotenv-webpack": "^1.7.0",
+        "emoji-mart": "^2.11.1",
         "faunadb": "^2.8.1",
         "framer-motion": "^1.6.15",
         "isomorphic-unfetch": "^3.0.0",

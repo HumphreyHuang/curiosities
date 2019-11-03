@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
     }
+
     a {
         color: inherit;
         text-decoration: none;
@@ -23,6 +24,14 @@ const GlobalStyle = createGlobalStyle`
 
     button:focus {
         outline: 0;
+    }
+
+    input,
+    textarea,
+    button,
+    select,
+    a {
+        -webkit-tap-highlight-color: transparent;
     }
 `;
 

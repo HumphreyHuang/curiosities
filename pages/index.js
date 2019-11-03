@@ -1,13 +1,13 @@
 import fetch from 'isomorphic-unfetch';
 
 import Layout from '../lib/components/layout';
-import Photo from '../lib/components/photo';
+import ItemContainer from '../lib/components/item-container';
 import { host } from '../lib/services/host';
 
 const Main = ({ apodData }) => {
     return (
         <Layout>
-            <Photo data={apodData} />
+            <ItemContainer data={apodData} />
         </Layout>
     );
 };

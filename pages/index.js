@@ -7,7 +7,7 @@ import { host } from '../lib/services/host';
 const Main = ({ apodData }) => {
     return (
         <Layout>
-            <ItemContainer data={apodData} />
+            <ItemContainer apodData={apodData} />
         </Layout>
     );
 };

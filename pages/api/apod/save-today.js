@@ -14,13 +14,24 @@ export default async (req, res) => {
         url = '',
         hdurl = '',
         date = '',
-        copyright = ''
+        copyright = '',
+        likes = 1,
+        emoji = ''
     } = req.body;
 
     try {
         await client.query(
             q.Create(q.Collection('apod'), {
-                data: { title, explanation, url, hdurl, date, copyright }
+                data: {
+                    title,
+                    explanation,
+                    url,
+                    hdurl,
+                    date,
+                    copyright,
+                    likes,
+                    emoji
+                }
             })
         );
 

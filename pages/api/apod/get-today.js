@@ -21,7 +21,14 @@ export default async (req, res) => {
             )
         );
 
-        res.status(200).json(dbs.data);
+        const { ref, data } = dbs;
+
+        const result = {
+            ref,
+            data
+        };
+
+        res.status(200).json(result);
     } catch (e) {
         res.status(500).json({ error: e.message });
     }

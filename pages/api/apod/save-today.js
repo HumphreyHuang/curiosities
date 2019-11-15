@@ -15,8 +15,8 @@ export default async (req, res) => {
         hdurl = '',
         date = '',
         copyright = '',
-        likes = 1,
-        emoji = ''
+        likes = Math.floor(Math.random() * 16) + 5, // 5 - 20
+        emojis = ''
     } = req.body;
 
     try {
@@ -30,7 +30,7 @@ export default async (req, res) => {
                     date,
                     copyright,
                     likes,
-                    emoji
+                    emojis
                 }
             })
         );

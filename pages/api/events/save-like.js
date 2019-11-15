@@ -8,20 +8,18 @@ if (!client) {
 }
 
 export default async (req, res) => {
-    const { id, count } = req.body;
-    console.log(id);
-    res.status(200).end();
-    // try {
-    //     await client.query(
-    //         q.Update(
-    //             q.Ref(q.Collection('apod'), apodId), {
-    //                 data: { likes }
-    //             })
-    //         )
-    //     );
+    const { apodRef, counts } = req.body;
+    const { id } = apodRef['@ref'];
 
-    //     res.status(200).end();
-    // } catch (e) {
-    //     res.status(500).json({ error: e.message });
-    // }
+    try {
+        await client.query(
+            q.Update(q.Ref(q.Collection('apod'), id), {
+                data: { likes: counts }
+            })
+        );
+
+        res.status(200).end();
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
 };

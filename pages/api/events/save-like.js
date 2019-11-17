@@ -8,15 +8,14 @@ if (!client) {
 }
 
 export default async (req, res) => {
-    const { apodId, likes } = req.body;
+    const { apodRef, counts } = req.body;
+    const { id } = apodRef['@ref'];
 
     try {
         await client.query(
-            q.Update(
-                q.Ref(q.Collection('apod'), apodId), {
-                    data: { likes }
-                })
-            )
+            q.Update(q.Ref(q.Collection('apod'), id), {
+                data: { likes: counts }
+            })
         );
 
         res.status(200).end();

@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import fetch from 'isomorphic-unfetch';
 
 import Layout from '../lib/components/layout';
+import Photo from '../lib/components/photo/photo';
 
 class Curiosity extends Component {
-    static async getInitialProps() {
-        const res = await fetch('https://api.github.com/repos/zeit/next.js');
-
-        return { res };
-    }
-
     render() {
-        return <Layout>Curiosity</Layout>;
+        const url = '/static/images/wip.png';
+        return (
+            <Layout>
+                Curiosity - WIP
+                <Photo url={url} />
+            </Layout>
+        );
     }
 }
 

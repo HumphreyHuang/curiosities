@@ -12,13 +12,13 @@ const Main = ({ apodData }) => {
     );
 };
 
-Main.getInitialProps = async () => {
+Main.getInitialProps = async ({ req }) => {
     let apodData = {};
 
     const NASA_KEY = process.env.NASA_KEY;
 
     try {
-        const resApi = await fetch(`${host}/api/apod/get-today`);
+        const resApi = await fetch(`${host(req)}/api/apod/get-today`);
 
         if (resApi.ok) {
             apodData = await resApi.json();

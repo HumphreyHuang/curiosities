@@ -20,7 +20,7 @@ export default async (req, res) => {
     } = req.body;
 
     try {
-        await client.query(
+        const dbs = await client.query(
             q.Create(q.Collection('apod'), {
                 data: {
                     title,
@@ -35,7 +35,14 @@ export default async (req, res) => {
             })
         );
 
-        res.status(200).end();
+        const { ref, data } = dbs;
+
+        const result = {
+            ref,
+            data
+        };
+
+        res.status(200).json(result);
     } catch (e) {
         res.status(500).json({ error: e.message });
     }

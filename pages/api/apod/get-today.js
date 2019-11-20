@@ -16,7 +16,11 @@ export default async (req, res) => {
                 q.Match(
                     // query index
                     q.Index('today_apod'), // specify source
-                    dayjs().format('YYYY-MM-DD')
+                    dayjs(
+                        new Date().toLocaleString('en-US', {
+                            timeZone: 'America/New_York'
+                        })
+                    ).format('YYYY-MM-DD')
                 )
             )
         );

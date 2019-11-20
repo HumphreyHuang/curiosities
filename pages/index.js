@@ -5,10 +5,12 @@ import ItemContainer from '../lib/components/item-container';
 import { host } from '../lib/services/host';
 
 const Main = ({ apodData }) => {
-    return (
+    return apodData ? (
         <Layout>
             <ItemContainer apodData={apodData} />
         </Layout>
+    ) : (
+        'Loading...'
     );
 };
 
@@ -26,16 +28,18 @@ Main.getInitialProps = async ({ req }) => {
             const resNasa = await fetch(
                 `https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`
             );
-            apodData = await resNasa.json();
+            const apodDataRaw = await resNasa.json();
 
             // Save API data to DB
-            await fetch(`${host}/api/apod/save-today`, {
+            const saved = await fetch(`${host(req)}/api/apod/save-today`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(apodData)
+                body: JSON.stringify(apodDataRaw)
             });
+
+            apodData = await saved.json();
         }
     } catch (e) {
         console.error(e);
